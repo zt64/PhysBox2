@@ -8,3 +8,6 @@ lib/
 
 # Mono
 .mono/
+.idea/
+PhysBox2.csproj
+PhysBox2.sln

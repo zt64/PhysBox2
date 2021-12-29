@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/FPSCounter.gd" type="Script" id=1]
 
-[node name="Spatial" type="Node2D"]
+[node name="MainMenu" type="Node2D"]
 position = Vector2( -0.0516024, 0.0525756 )
 
 [node name="Control" type="Control" parent="."]
