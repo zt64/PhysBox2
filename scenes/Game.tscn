@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scripts/FPSCounter.gd" type="Script" id=1]
 [ext_resource path="res://scripts/Game.gd" type="Script" id=2]
 
 [sub_resource type="CubeMesh" id=1]
@@ -11,15 +10,6 @@ script = ExtResource( 2 )
 [node name="UI" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="FPSCounter" type="Label" parent="UI"]
-margin_right = 84.0
-margin_bottom = 25.0
-text = "000 FPS"
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
