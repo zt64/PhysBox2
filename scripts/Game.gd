@@ -1,11 +1,11 @@
 extends Spatial
 
-var players = { }
+onready var players = { }
 
 func _ready():
 	get_tree().connect("network_peer_connected", self, "_player_connected")
-
-	players[get_tree().get_network_unique_id()] = preload("res://scenes/Player.tscn").instance()
+	var localPlayer = preload("res://scenes/Player.tscn").instance()
+	players[get_tree().get_network_unique_id()] = localPlayer
 
 	for id in players:
 		var playerInfo = players[id]

@@ -1,27 +1,27 @@
 extends RigidBody
 
-export var speed = 1
+export var speed = 5
 export var jumpHeight = 2
 
-var direction = Vector3()
+remote func _set_transform(pos): transform = pos
 
-func _ready(): pass
-
-remote func _set_position(pos):
-	global_transform = pos
-
-func _physics_process(delta):
-	direction = Vector3()
+func _process(delta):
+	var direction = Vector3()
 	
-	if Input.is_key_pressed(KEY_A): direction -= transform.basis.x
-	elif Input.is_key_pressed(KEY_D): direction += transform.basis.x
+	if Input.is_key_pressed(KEY_A): direction += Vector3.LEFT
+	elif Input.is_key_pressed(KEY_D): direction += Vector3.RIGHT
 	
-	if Input.is_key_pressed(KEY_W): direction += transform.basis.y
-	elif Input.is_key_pressed(KEY_S): direction -= transform.basis.y
+	if Input.is_key_pressed(KEY_W): direction += Vector3.FORWARD
+	elif Input.is_key_pressed(KEY_S): direction += Vector3.BACK
 	
 	direction = direction.normalized()
-	if is_network_master():
-		translate(direction * speed)
-		rpc_unreliable("_set_position", global_transform)
-#	if direction != Vector3():
-	pass
+	if is_network_master(): 
+		add_central_force(direction * speed)
+		rpc_unreliable("_set_transform", transform)
+
+func _input(event):
+	if event is InputEventMouseMotion: pass
+	
+	if event.is_action_pressed("ui_cancel"):
+		if Input.get_mouse_mode() == 2: Input.set_mouse_mode(0) # Free the mouse
+		else: Input.set_mouse_mode(2)
