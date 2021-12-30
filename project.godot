@@ -24,6 +24,10 @@ config/name="PhysBox2"
 run/main_scene="res://ui/menus/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Profiling="*res://ui/Profiling.tscn"
+
 [gdnative]
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
