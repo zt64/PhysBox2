@@ -21,12 +21,21 @@ _global_script_class_icons={
 [application]
 
 config/name="PhysBox2"
-run/main_scene="res://scenes/MainMenu.tscn"
+run/main_scene="res://ui/menus/Main.tscn"
 config/icon="res://icon.png"
 
 [gdnative]
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+
+[global]
+
+theme=false
+
+[gui]
+
+theme/use_hidpi=true
+theme/custom="res://themes/dark.tres"
 
 [physics]
 

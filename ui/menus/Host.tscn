@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://themes/dark.tres" type="Theme" id=1]
+[ext_resource path="res://ui/scripts/HostMenu.gd" type="Script" id=2]
+
+[node name="Host" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -250.0
+margin_top = -79.0
+margin_right = 250.0
+margin_bottom = 79.0
+rect_min_size = Vector2( 500, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 486.0
+margin_bottom = 144.0
+theme = ExtResource( 1 )
+custom_constants/separation = 20
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PortInput" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_right = 472.0
+margin_bottom = 73.0
+rect_min_size = Vector2( 0, 70 )
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/PortInput"]
+margin_top = 24.0
+margin_right = 52.0
+margin_bottom = 49.0
+theme = ExtResource( 1 )
+text = "Port:"
+valign = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="PanelContainer/VBoxContainer/PortInput"]
+margin_left = 60.0
+margin_right = 472.0
+margin_bottom = 73.0
+size_flags_horizontal = 3
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/VBoxContainer/PortInput/PanelContainer"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 398.0
+margin_bottom = 59.0
+text = "27015"
+caret_blink = true
+
+[node name="Buttons" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+margin_top = 93.0
+margin_right = 472.0
+margin_bottom = 130.0
+
+[node name="BackButton" type="Button" parent="PanelContainer/VBoxContainer/Buttons"]
+margin_right = 232.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Back"
+
+[node name="HostButton" type="Button" parent="PanelContainer/VBoxContainer/Buttons"]
+margin_left = 240.0
+margin_right = 472.0
+margin_bottom = 37.0
+size_flags_horizontal = 3
+text = "Host Server"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Buttons/BackButton" to="PanelContainer/VBoxContainer" method="_on_BackButton_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Buttons/HostButton" to="PanelContainer/VBoxContainer" method="_on_HostButton_pressed"]
