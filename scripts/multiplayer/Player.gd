@@ -1,11 +1,11 @@
 extends RigidBody
 
-export var speed = 5
+export var speed = 10
 export var jumpHeight = 2
 
 remote func _set_transform(pos): transform = pos
 
-func _process(delta):
+func _physics_process(delta):
 	var direction = Vector3()
 	
 	if Input.is_key_pressed(KEY_A): direction += Vector3.LEFT
