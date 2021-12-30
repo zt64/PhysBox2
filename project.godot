@@ -28,6 +28,10 @@ config/icon="res://icon.png"
 
 Profiling="*res://ui/Profiling.tscn"
 
+[display]
+
+window/dpi/allow_hidpi=true
+
 [gdnative]
 
 singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]

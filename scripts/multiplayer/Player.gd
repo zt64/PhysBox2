@@ -5,7 +5,7 @@ export var jumpHeight = 2
 
 remote func _set_transform(pos): transform = pos
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction = Vector3()
 	
 	if Input.is_key_pressed(KEY_A): direction += Vector3.LEFT
