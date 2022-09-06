@@ -1,6 +1,4 @@
-[gd_scene load_steps=7 format=2]
-
-[ext_resource path="res://scripts/Game.gd" type="Script" id=2]
+[gd_scene load_steps=6 format=2]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -45,27 +43,136 @@ nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
 shader = SubResource( 4 )
 
 [node name="Game" type="Spatial"]
-script = ExtResource( 2 )
 
-[node name="UI" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="SpawnPoint" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4113, 0 )
+
+[node name="World" type="Spatial" parent="."]
+
+[node name="Players" type="Spatial" parent="World"]
+
+[node name="Map" type="Spatial" parent="World"]
+
+[node name="Floor" type="KinematicBody" parent="World/Map"]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Map/Floor"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="World/Map/Floor"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall1" type="KinematicBody" parent="World/Map"]
+transform = Transform( 10, 0, 0, 0, -2.18557e-08, -5, 0, 1, -4.37114e-07, 0, 4, -11 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Map/Wall1"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="World/Map/Wall1"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall2" type="KinematicBody" parent="World/Map"]
+transform = Transform( -4.37114e-07, 1, -2.18557e-07, 0, -4.37114e-08, -5, -10, -4.37114e-08, 9.55343e-15, -11, 4, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Map/Wall2"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="World/Map/Wall2"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall4" type="KinematicBody" parent="World/Map"]
+transform = Transform( -4.37114e-07, 1, -2.18557e-07, 0, -4.37114e-08, -5, -10, -4.37114e-08, 9.55343e-15, 11, 4, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Map/Wall4"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="World/Map/Wall4"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall3" type="KinematicBody" parent="World/Map"]
+transform = Transform( -10, -8.74228e-08, 1.91069e-14, 0, -4.37114e-08, -5, 8.74228e-07, -1, 2.18557e-07, 5.96046e-08, 4, 11 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="World/Map/Wall3"]
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MeshInstance" type="MeshInstance" parent="World/Map/Wall3"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.01564, 5.68847 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 17, 6 )
+
+[node name="HUD" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SpawnPoint" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.411303, 0 )
+[node name="PanelContainer" type="PanelContainer" parent="HUD"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -53.0
+margin_right = 111.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.684241, 0.729255, 0, -0.729255, 0.684241, 0, 9.184, 12.509 )
-
-[node name="KinematicBody" type="KinematicBody" parent="."]
-transform = Transform( 10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0, -1, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
-shape = SubResource( 1 )
-
-[node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
-mesh = SubResource( 2 )
-material/0 = SubResource( 5 )
+[node name="Health" type="Label" parent="HUD/PanelContainer"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 136.0
+margin_bottom = 39.0
+text = "Health: 100"

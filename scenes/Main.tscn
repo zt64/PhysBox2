@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://themes/dark.tres" type="Theme" id=1]
+[ext_resource path="res://ui/fonts/Roboto-Regular.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scripts/Main.cs" type="Script" id=3]
+
+[node name="Main" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+script = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -250.0
+margin_top = -244.0
+margin_right = 250.0
+margin_bottom = -133.0
+rect_min_size = Vector2( 500, 0 )
+theme = ExtResource( 1 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]PhysBox2[/center]"
+text = "PhysBox2"
+fit_content_height = true
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -89.5
+margin_top = -77.5
+margin_right = 89.5
+margin_bottom = 77.5
+size_flags_horizontal = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="PanelContainer"]
+margin_left = 14.0
+margin_top = 14.0
+margin_right = 165.0
+margin_bottom = 141.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HostButton" type="Button" parent="PanelContainer/Buttons"]
+margin_right = 151.0
+margin_bottom = 37.0
+theme = ExtResource( 1 )
+text = "Host Server"
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoinButton" type="Button" parent="PanelContainer/Buttons"]
+margin_top = 45.0
+margin_right = 151.0
+margin_bottom = 82.0
+theme = ExtResource( 1 )
+text = "Join Server"
+
+[node name="ExitButton" type="Button" parent="PanelContainer/Buttons"]
+margin_top = 90.0
+margin_right = 151.0
+margin_bottom = 127.0
+text = "Exit"
+
+[connection signal="pressed" from="PanelContainer/Buttons/HostButton" to="." method="OnHostButtonPressed"]
+[connection signal="pressed" from="PanelContainer/Buttons/JoinButton" to="." method="OnJoinButtonPressed"]
+[connection signal="pressed" from="PanelContainer/Buttons/ExitButton" to="." method="OnExitButtonPressed"]

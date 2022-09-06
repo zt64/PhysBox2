@@ -108,13 +108,12 @@ margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "Back"
 
-[node name="HostButton" type="Button" parent="PanelContainer/Inputs/Buttons"]
+[node name="JoinButton" type="Button" parent="PanelContainer/Inputs/Buttons"]
 margin_left = 240.0
 margin_right = 472.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 text = "Join Server"
 
-[connection signal="text_changed" from="PanelContainer/Inputs/VBoxContainer/IPAddressInput/PanelContainer/LineEdit" to="PanelContainer/Inputs" method="_on_LineEdit_text_changed"]
 [connection signal="pressed" from="PanelContainer/Inputs/Buttons/BackButton" to="PanelContainer/Inputs" method="_on_BackButton_pressed"]
-[connection signal="pressed" from="PanelContainer/Inputs/Buttons/HostButton" to="PanelContainer/Inputs" method="_on_HostButton_pressed"]
+[connection signal="pressed" from="PanelContainer/Inputs/Buttons/JoinButton" to="PanelContainer/Inputs" method="_on_JoinButton_pressed"]
